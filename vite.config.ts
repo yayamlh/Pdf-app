@@ -30,11 +30,14 @@ export default defineConfig(({ mode }) => ({
             '@radix-ui',
             'lucide-react',
           ],
-        }
+        },
       },
+      external: [
+        'pdfjs-dist',      // <<< --- Add this to tell Vite NOT to bundle pdfjs-dist
+      ],
     },
   },
   optimizeDeps: {
-    exclude: ['lovable-tagger'],
+    exclude: ['lovable-tagger', 'pdfjs-dist'], // <<< --- Also exclude from optimization
   },
 }));
